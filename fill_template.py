@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fill LGEAS Vendor Onboarding template from a JSON fields file.
+"""Fill vendor onboarding Excel template from a JSON fields file.
 
 Usage: python fill_template.py <fields.json> <supplier_name> [<source_folder>]
 
@@ -22,7 +22,7 @@ except ImportError:
     sys.exit("openpyxl not found — run: pip install openpyxl")
 
 BASE        = Path(__file__).parent
-TEMPLATE    = BASE / "templates" / "LGEAS_Vendor_Onboarding_TEMPLATE_v1.1.xlsx"
+TEMPLATE    = BASE / "templates" / "vendor_onboarding_template.xlsx"
 OUTPUT_DIR  = BASE / "output"
 ARCHIVE_DIR = BASE / "archive"
 
@@ -91,7 +91,7 @@ def resolve_contacts(fields: dict) -> dict:
 
 def fill(fields: dict, supplier_name: str) -> Path:
     OUTPUT_DIR.mkdir(exist_ok=True)
-    dest = OUTPUT_DIR / f"MDMS_REG_{supplier_name}_{DATE_STR}.xlsx"
+    dest = OUTPUT_DIR / f"VENDOR_REG_{supplier_name}_{DATE_STR}.xlsx"
     shutil.copy(TEMPLATE, dest)
 
     wb = openpyxl.load_workbook(dest)
@@ -166,7 +166,7 @@ def fill(fields: dict, supplier_name: str) -> Path:
     se["B7"]  = fields.get("agence")
     se["B8"]  = fields.get("rib")
 
-    # LGE contact point (Hadjer or whoever the LG liaison is — not the supplier)
+    # Internal contact point (not the supplier)
     se["B14"] = fields.get("lge_contact_name",  "")
     se["B15"] = fields.get("lge_contact_email", "")
     se["B16"] = fields.get("lge_contact_dept",  "Finance")
@@ -269,7 +269,7 @@ def archive(source_folder: str, supplier_name: str, fields: dict, excel_path: Pa
 
     required = {"nom_fr", "nif", "rib", "banque"}
     lines = [
-        f"# MDMS Registration — {supplier_name} — {DATE_STR}\n",
+        f"# Vendor Registration — {supplier_name} — {DATE_STR}\n",
         "## Extracted Fields\n",
         "| Field | Value | Status |",
         "|---|---|---|",
