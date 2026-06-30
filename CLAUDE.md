@@ -1,4 +1,4 @@
-# DocFiller — LGEAS MDMS Vendor Onboarding
+# DocFiller — Vendor Onboarding Automation
 ### v2.2 | Claude Code Skill
 
 ---
@@ -6,10 +6,10 @@
 ## What This Does
 
 Drop supplier documents (PDFs or images) into `suppliers/incoming/<NAME>/`, run `/fill-mdms`, get:
-- Filled MDMS Excel (Vendor Registration Form + Schedule E)
+- Filled vendor registration Excel (Vendor Registration Form + Schedule E)
 - Archived folder with original docs + Excel + SUMMARY.md
 
-**No Gemini API. No Python pipeline. Claude reads the docs directly using its vision.**
+**No OCR pipeline. Claude reads the docs directly using its vision.**
 
 ---
 
@@ -30,7 +30,7 @@ Drop supplier documents (PDFs or images) into `suppliers/incoming/<NAME>/`, run 
 | `.claude/commands/fill-mdms.md` | The slash command — extraction rules, field schemas, validation |
 | `fill_template.py` | Excel writer + archiver |
 | `knowledge/corrections.md` | Claude's growing memory — Algerian doc patterns, bank SWIFTs, field rules |
-| `templates/LGEAS_Vendor_Onboarding_TEMPLATE_v1.1.xlsx` | Source template (never overwritten) |
+| `templates/vendor_onboarding_template.xlsx` | Source template (never overwritten) |
 | `suppliers/incoming/<NAME>/` | Drop supplier docs here per supplier |
 | `suppliers/test/` | Sample docs for testing |
 | `archive/<YYYY-MM>_<SUPPLIER>/` | Completed registrations |
@@ -108,7 +108,7 @@ Claude appends to knowledge/corrections.md
 
 **Form role rules (LOCKED):**
 - Requestor (B5), Finance Manager (D12), Contact Person (B13), Signatures (B28/D28) = all **supplier-side** people
-- LG person (Hadjer etc.) = **Schedule E only** (B14) — no signature, nowhere else
+- Internal company contact = **Schedule E only** (B14) — no signature, nowhere else
 - Representative (D10) = owner/CEO from RC المُمَثِّل table
 - If only one supplier contact: same person fills all roles and signs twice
 
