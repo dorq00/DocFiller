@@ -1,0 +1,11 @@
+config.py
+local_extension.py
+suppliers/
+output/
+templates/
+exports/
+archive/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
