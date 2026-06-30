@@ -5,7 +5,7 @@ _Appended by Claude after each successful run. Read this before extracting any f
 
 ## Form Role Logic — CRITICAL
 
-The Vendor Registration Form is filled by LG **about** the supplier. All contacts in the form body are **supplier-side** people. The LG person (Hadjer etc.) appears **only** in Schedule E as LGE Contact Point — nowhere else, no signature.
+The Vendor Registration Form is filled by the buyer **about** the supplier. All contacts in the form body are **supplier-side** people. The internal company contact appears **only** in Schedule E as Internal Contact Point — nowhere else, no signature.
 
 | supplier_type | requestor (B5) | finance_manager (D12) | signatures (B28/D28) | lge_contact (Sched.E) |
 |---|---|---|---|---|
@@ -19,7 +19,7 @@ The Vendor Registration Form is filled by LG **about** the supplier. All contact
 
 **Finance Manager** (D12) = supplier's finance person. If none provided, default to requestor.
 
-**LGE Contact Point** (Schedule E only) = the LG colleague who liaised. No signature. Name only usually — phone/email filled manually.
+**Internal Contact Point** (Schedule E only) = the buyer-side colleague who liaised. No signature. Name only usually — phone/email filled manually.
 
 ---
 
@@ -79,6 +79,6 @@ The RC appears in Arabic with "ب" between year and number. Read it as:
 
 | Date | Supplier | Notes |
 |---|---|---|
-| 2026-06-30 | CESI ALGERIE | First live run. RC fully in Arabic — Certif existence used for activite. NIS used for RC number cross-check. Address discrepancy across 3 docs. |
-| 2026-06-30 | CESI ALGERIE | Final run with updated template (Pledge Letter filled, checklist sheet removed). Address confirmed Baraki/Rokzan per Agrément 2026. Representative from Agrément (DLACHI MOHAMED NAIM). Name mismatch false positive fixed — NIF uses accented SPÉCIALISÉES, RIB uses SPECIALISEES; validator now normalizes accents before comparing. |
-| 2026-06-30 | CESI ALGERIE | Re-run (new session). Representative corrected to BELHOUL MOURAD (signataire autorisé from email, overrides DLACHI MOHAMED NAIM from Agrément). personne_morale_one — Yanis HOUMRANI only contact. Yasmine AKKACHE was CC only, not a form contact. RIB issued at Rouiba branch but guichet 00780 = Bab Ezzouar per knowledge base. |
+| 2026-06-30 | — | RC fully in Arabic — Certif existence used for activite and date_immatriculation. NIS used for RC number cross-check only. Address discrepancy across 3 docs — Agrément is authoritative for current headquarters. |
+| 2026-06-30 | — | Address confirmed via 2026 Agrément when Certif existence showed a newer address. Representative from Agrément fallback when RC table unreadable. Name mismatch false positive: NIF uses accented characters (SPÉCIALISÉES), RIB drops accents (SPECIALISEES) — validator normalizes before comparing. |
+| 2026-06-30 | — | User-provided signataire autorisé overrides RC/Agrément representative. CC'd contacts on email are not form contacts. RIB may be issued at a different branch than the account branch — use guichet code to identify correct branch. |
