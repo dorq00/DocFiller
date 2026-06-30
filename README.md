@@ -1,6 +1,6 @@
 # DocFiller
 
-Fills the LGEAS vendor onboarding Excel (MDMS) from Algerian supplier documents — RC, NIF, RIB, Certif existence — using Claude's vision to read and extract fields, with a human confirmation step before any file is written.
+Fills the vendor registration Excel from Algerian supplier documents — RC, NIF, RIB, Certif existence — using Claude's vision to read and extract fields, with a human confirmation step before any file is written.
 
 ## How it works
 
@@ -17,7 +17,7 @@ python3 fill_template.py fields.json <NAME> <folder>
         ↓
 archive/<YYYY-MM>_<SUPPLIER>/
 ├── docs/                   ← original scans
-├── MDMS_REG_<NAME>.xlsx    ← filled Excel
+├── VENDOR_REG_<NAME>.xlsx    ← filled Excel
 └── SUMMARY.md              ← extracted fields log
 ```
 
@@ -26,7 +26,7 @@ archive/<YYYY-MM>_<SUPPLIER>/
 | Sheet | What gets filled |
 |---|---|
 | Vendor Registration Form | Company info, contacts, bank details, signatures |
-| Schedule E – Payment | Bank details + LGE contact point |
+| Schedule E – Payment | Bank details + internal contact point |
 | Pledge Letter | Date, company name, RC + NIF |
 
 ## Setup
@@ -37,7 +37,7 @@ pip install openpyxl
 
 Place the onboarding template at:
 ```
-templates/LGEAS_Vendor_Onboarding_TEMPLATE_v1.1.xlsx
+templates/vendor_onboarding_template.xlsx
 ```
 
 ## Document types supported
