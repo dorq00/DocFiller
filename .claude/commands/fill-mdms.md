@@ -1,6 +1,6 @@
-# MDMS Vendor Onboarding — Fill Template
+# Vendor Onboarding — Fill Template
 
-Fill the LGEAS Vendor Onboarding Excel template from a folder of supplier documents.
+Fill the vendor registration Excel template from a folder of supplier documents.
 
 **Supplier folder:** $ARGUMENTS
 
@@ -43,9 +43,9 @@ For `new_vendor`: the Bank Account Change Request sheet is left blank in the out
 | Contact Person B13 | `commercial_name` | `requestor_name` (same) | `nom` (same) |
 | Signatures B28/D28 | each signs their block | same person signs twice | single signature |
 | Representative D10 | owner/CEO from RC (المُمَثِّل) | same | N/A (physical person) |
-| LGE Contact (Sched.E only) | `lge_contact_name` | `lge_contact_name` | `lge_contact_name` |
+| Internal Contact (Sched.E only) | `lge_contact_name` | `lge_contact_name` | `lge_contact_name` |
 
-**The LG person (Hadjer etc.) appears ONLY in Schedule E as LGE contact. Nowhere else. No signature.**
+**The internal company contact appears ONLY in Schedule E. Nowhere else. No signature.**
 
 ---
 
@@ -181,7 +181,7 @@ Put `null` in JSON for failed validations — never silently write a bad value.
 ```
 ## ⚠️ Please confirm before I write the Excel
 
-Supplier: CESI_ALGERIE
+Supplier: SARL_EXAMPLE
 
 | Field | Value | Source | Status |
 |---|---|---|---|
@@ -213,15 +213,15 @@ After running fill_template.py, print:
 | ... | ... | ... | ... |
 
 ## Documents Processed
-- RC CESI ALGERIE 2026.pdf → RC (fully Arabic — used Certif existence for activite)
+- RC_SUPPLIER.pdf → RC
 - NIF.pdf → NIF ✅
-- BRN30055CA77712_005815.pdf → RIB ✅
+- RIB.pdf → RIB ✅
 - ...
 
 ## Archive
-✅ archive/2026-06_CESI_ALGERIE/
+✅ archive/2026-06_SARL_EXAMPLE/
    ├── docs/ (6 files)
-   ├── MDMS_REG_CESI_ALGERIE_2026-06.xlsx
+   ├── VENDOR_REG_SARL_EXAMPLE_2026-06.xlsx
    └── SUMMARY.md
 
 ```
